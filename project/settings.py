@@ -1,23 +1,22 @@
 import os
+from environs import Env
+
+env = Env()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
-        'PORT': '5434',
-        'NAME': 'checkpoint',
-        'USER': 'guard',
-        'PASSWORD': 'osim5',
-
-
+        'HOST': env.str('SRV_HOST'),
+        'PORT': env.int('SRV_PORT'),
+        'NAME': env.str('SRV_NAME'),
+        'USER': env.str('SRV_USER'),
+        'PASSWORD': env.str('SRV_PASSWORD'),
     }
 }
 
 INSTALLED_APPS = ['datacenter']
-
 ROOT_URLCONF = 'project.urls'
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [env.str('SRV_ALLOWED_HOSTS')]
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,11 +30,7 @@ TEMPLATES = [
 
 
 USE_L10N = True
-
 LANGUAGE_CODE = 'ru-ru'
-
 TIME_ZONE = 'Europe/Moscow'
-
 USE_TZ = True
-
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

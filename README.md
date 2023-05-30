@@ -12,6 +12,17 @@ pip install -r requirements.txt
 ```
 
 ### Как запустить
+Перед запуском необходимо произвести настройку переменных окружения.
+в файле .env необходимо прописать переменные для доступа к БД
+* SECRET_KEY
+* SRV_HOST 
+* SRV_PORT
+* SRV_NAME
+* SRV_USER
+* SRV_PASSWORD
+* SRV_ALLOWED_HOSTS
+
+Запустить скрипт
 ```
 manage.py runserver 127.0.0.1:8000
 ```
