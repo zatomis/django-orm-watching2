@@ -15,12 +15,15 @@ pip install -r requirements.txt
 Перед запуском необходимо произвести настройку переменных окружения.
 в файле .env необходимо прописать переменные для доступа к БД
 * SECRET_KEY
-* SRV_HOST 
-* SRV_PORT
-* SRV_NAME
-* SRV_USER
-* SRV_PASSWORD
-* SRV_ALLOWED_HOSTS
+* DB_HOST 
+* DB_PORT
+* DB_NAME
+* DB_USER
+* DB_PASSWORD
+* ALLOWED_HOSTS
+
+####  Также в файле .env можно прописать режим запуска сервера, переменная DEBUG варианты false true
+
 
 Запустить скрипт
 ```

@@ -6,17 +6,17 @@ env = Env()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': env.str('SRV_HOST'),
-        'PORT': env.int('SRV_PORT'),
-        'NAME': env.str('SRV_NAME'),
-        'USER': env.str('SRV_USER'),
-        'PASSWORD': env.str('SRV_PASSWORD'),
+        'HOST': env.str('DB_HOST'),
+        'PORT': env.int('DB_PORT'),
+        'NAME': env.str('DB_NAME'),
+        'USER': env.str('DB_USER'),
+        'PASSWORD': env.str('DB_PASSWORD'),
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 ROOT_URLCONF = 'project.urls'
-ALLOWED_HOSTS = [env.str('SRV_ALLOWED_HOSTS')]
+ALLOWED_HOSTS = [env.list('ALLOWED_HOSTS')]
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
