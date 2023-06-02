@@ -3,6 +3,9 @@ from environs import Env
 
 env = Env()
 
+DEBUG = env.bool("DEBUG", default=False)
+SECRET_KEY = env.str("SECRET_KEY")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -16,8 +19,7 @@ DATABASES = {
 
 INSTALLED_APPS = ['datacenter']
 ROOT_URLCONF = 'project.urls'
-ALLOWED_HOSTS = [env.list('ALLOWED_HOSTS')]
-
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES = [
@@ -27,7 +29,6 @@ TEMPLATES = [
         'APP_DIRS': True,
     },
 ]
-
 
 USE_L10N = True
 LANGUAGE_CODE = 'ru-ru'
